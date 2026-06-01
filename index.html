@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Mars Robot Simulator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Martian Robots</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f7f7f7;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 24px;
+        }
+
+        pre {
+            background: #fff;
+            padding: 16px;
+            min-height: 80px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
 </head>
 
 <body>
-    <textarea id="input" rows="10" cols="50"></textarea><br>
-    <button id="testButton">Run</button>
-    <pre id="output"></pre>
-    <script src="robot.js"></script>
+    <h1>Martian Robots</h1>
+
+    <p>Paste the robot input below and click Test.</p>
+
+    <textarea id="input">
+  </textarea>
+
+    <br />
+
+    <button id="testButton">Test</button>
+
+    <div class="output">
+        <h2>Result</h2>
+        <pre id="output"></pre>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
