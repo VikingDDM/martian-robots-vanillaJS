@@ -45,3 +45,25 @@ class Robot {
         return this.lost ? base + " LOST" : base;
     }
 }
+
+function parsePos(line) {
+    let parts = line.trim().split(/\s+/);
+    return { x: parseInt(parts[0]), y: parseInt(parts[1]), dir: parts[2] };
+}
+
+function solve(input) {
+    let lines = input.trim().split(/\r?\n/).filter(l => l.trim().length > 0);
+    if (lines.length === 0) return "";
+    let [maxX, maxY] = lines[0].split(/\s+/).map(Number);
+    let world = new World(maxX, maxY);
+    let results = [];
+    for (let i = 1; i < lines.length; i += 2) {
+        let posLine = lines[i], instrLine = lines[i + 1];
+        if (!posLine || !instrLine) continue;
+        let { x, y, dir } = parsePos(posLine);
+        let bot = new Robot(x, y, dir, world);
+        bot.run(instrLine);
+        results.push(bot.status());
+    }
+    return results.join("\n");
+}
